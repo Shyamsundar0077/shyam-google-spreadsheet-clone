@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spreadsheet App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <div class="spreadsheet-container">
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">
+        <img src="https://www.gstatic.com/images/branding/product/1x/sheets_2020q4_48dp.png" alt="Sheets Logo" />
+        <span>Untitled spreadsheet</span>
+      </div>
+      <div class="menu-bar">
+        <div class="menu-item">File</div>
+        <div class="menu-item">Edit</div>
+        <div class="menu-item">View</div>
+        <div class="menu-item">Insert</div>
+        <div class="menu-item">Format</div>
+        <div class="menu-item">Data</div>
+        <div class="menu-item">Tools</div>
+        <div class="menu-item">Extensions</div>
+        <div class="menu-item">Help</div>
+      </div>
+      <div class="header-right">
+        <button class="share-button">Share</button>
+      </div>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <div class="toolbar-group">
+        <button class="toolbar-button"><i class="fas fa-undo"></i></button>
+        <button class="toolbar-button"><i class="fas fa-redo"></i></button>
+        <button class="toolbar-button"><i class="fas fa-print"></i></button>
+      </div>
+      <div class="toolbar-group">
+        <select class="font-size-select">
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option selected value="12">12</option>
+          <option value="14">14</option>
+          <option value="16">16</option>
+          <option value="18">18</option>
+        </select>
+      </div>
+      <div class="toolbar-group">
+        <button class="toolbar-button"><i class="fas fa-bold"></i></button>
+        <button class="toolbar-button"><i class="fas fa-italic"></i></button>
+        <button class="toolbar-button"><i class="fas fa-underline"></i></button>
+        <button class="toolbar-button"><i class="fas fa-strikethrough"></i></button>
+      </div>
+      <div class="toolbar-group">
+        <button class="toolbar-button"><i class="fas fa-align-left"></i></button>
+        <button class="toolbar-button"><i class="fas fa-align-center"></i></button>
+        <button class="toolbar-button"><i class="fas fa-align-right"></i></button>
+      </div>
+      <div class="toolbar-group">
+        <button class="toolbar-button"><i class="fas fa-dollar-sign"></i></button>
+        <button class="toolbar-button"><i class="fas fa-percentage"></i></button>
+      </div>
+    </div>
+
+    <!-- Formula Bar -->
+    <div class="formula-bar">
+      <div class="cell-address" id="current-cell">A1</div>
+      <div class="formula-input-container">
+        <span class="formula-fx">fx</span>
+        <input type="text" id="formula-input" placeholder="Enter formula" />
+      </div>
+    </div>
+
+    <!-- Spreadsheet -->
+    <div class="spreadsheet">
+      <div class="corner-header"></div>
+      <div class="column-headers" id="column-headers"></div>
+      <div class="row-headers" id="row-headers"></div>
+      <div class="cells-container" id="cells-container"></div>
+    </div>
+
+    <!-- Sheet Tabs -->
+    <div class="sheet-tabs">
+      <div class="sheet-tab active">Sheet1</div>
+      <div class="add-sheet-button">+</div>
+    </div>
+  </div>
+
+  <!-- Formula Help Modal -->
+  <div id="formula-help-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Formula Help</h2>
+      <div class="formula-category">
+        <h3>Mathematical Functions</h3>
+        <ul>
+          <li><strong>=SUM(range)</strong> - Calculates the sum of a range of cells. Example: =SUM(A1:A5)</li>
+          <li><strong>=AVERAGE(range)</strong> - Calculates the average of a range of cells. Example: =AVERAGE(B1:B10)</li>
+          <li><strong>=MAX(range)</strong> - Returns the maximum value from a range of cells. Example: =MAX(C1:C20)</li>
+          <li><strong>=MIN(range)</strong> - Returns the minimum value from a range of cells. Example: =MIN(D1:D15)</li>
+          <li><strong>=COUNT(range)</strong> - Counts the number of cells containing numerical values in a range. Example: =COUNT(E1:E30)</li>
+        </ul>
+      </div>
+      <div class="formula-category">
+        <h3>Data Quality Functions</h3>
+        <ul>
+          <li><strong>=TRIM(cell)</strong> - Removes leading and trailing whitespace from a cell. Example: =TRIM(A1)</li>
+          <li><strong>=UPPER(cell)</strong> - Converts the text in a cell to uppercase. Example: =UPPER(B5)</li>
+          <li><strong>=LOWER(cell)</strong> - Converts the text in a cell to lowercase. Example: =LOWER(C10)</li>
+          <li><strong>=FIND_AND_REPLACE(range, find, replace)</strong> - Finds and replaces text in a range. Example: =FIND_AND_REPLACE(A1:A10, "old", "new")</li>
+          <li><strong>=REMOVE_DUPLICATES(range)</strong> - Removes duplicate values from a range. Example: =REMOVE_DUPLICATES(A1:A10)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
